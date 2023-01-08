@@ -39,8 +39,10 @@ function App() {
           >Add</button>
         </form>
 
+        <h1 className="todos-list-title">List of things to do</h1>
+
         <div className="todos-status">
-          {todos.length > 0 && <p>You have {todos.length} thing(s) to do.</p>}
+          {todos.length > 0 && <p>You have {todos.length} task(s).</p>}
         </div>
 
         <div className="todos-container">

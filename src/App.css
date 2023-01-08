@@ -50,16 +50,22 @@ body {
 .button-orange {
   background: var(--color-orange);
   color: white;
+  transition: background 200ms;
 }
 
-.button-orange-light {
+.button-orange:disabled {
   background: var(--color-orange-light);
-  color: white;
+  cursor: not-allowed;
+}
+
+.todos-list-title {
+  font-size: 1.5rem;
+  margin: 2rem 0 0.5rem 0;
 }
 
 .todos-status {
   font-weight: bold;
-  margin: 2rem 0;
+  margin: 0;
 }
 
 .todos-container {
