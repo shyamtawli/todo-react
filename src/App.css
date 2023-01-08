@@ -17,10 +17,22 @@
   --low-elevation-shadow: 0 2px 2px hsl(0, 0%, 0%, 20%);
 }
 
-@keyframes appear {
+@keyframes appear-from-below {
   from {
     opacity: 0;
     translate: 0 100px;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0;
+  }
+}
+
+@keyframes appear-from-left {
+  from {
+    opacity: 0;
+    translate: -100px 0;
   }
 
   to {
@@ -129,7 +141,7 @@ input[type='text']:focus::placeholder {
 
 input[type='text']:focus,
 input[type='text']:not(:placeholder-shown) {
-  background: hsl(0, 0%, 100%);
+  background: white;
   border-bottom: none;
 }
 
@@ -139,25 +151,26 @@ input[type='text']:not(:placeholder-shown) {
 }
 
 .todo-form input[type='text'] {
-  animation: appear 1s forwards;
+  animation: appear-from-below 1s forwards;
   opacity: 0;
 }
 
 .todo-form button {
-  animation: appear 1s 200ms forwards;
+  animation: appear-from-below 1s 200ms forwards;
   opacity: 0;
 }
 
 .todos-list-title {
-  animation: appear 1s 400ms forwards;
+  animation: appear-from-below 1s 400ms forwards;
   font-size: 1.5rem;
   opacity: 0;
   margin: 3rem 0 0.2rem 0;
 }
 
 .todos-status p {
-  margin: 0;
+  animation: appear-from-left 1s forwards;
   color: var(--color-gray-dark);
+  margin: 0;
 }
 
 .todos-container {
@@ -174,20 +187,20 @@ input[type='text']:not(:placeholder-shown) {
 }
 
 .todos-congrats-message-icon {
-  animation: appear 1s 600ms forwards;
+  animation: appear-from-below 1s 600ms forwards;
   font-size: 3rem;
   opacity: 0;
 }
 
 .todos-congrats-message-text {
-  animation: appear 1s 800ms forwards;
+  animation: appear-from-below 1s 800ms forwards;
   opacity: 0;
 }
 
 .todo {
   --transition-duration: 200ms;
   align-items: center;
-  animation: appear 1s forwards;
+  animation: appear-from-below 1s forwards;
   background: white;
   border-radius: 5px;
   box-shadow: var(--low-elevation-shadow);
@@ -216,7 +229,7 @@ input[type='text']:not(:placeholder-shown) {
 }
 
 .todo-time {
-  font-size: 0.9rem;
   color: var(--color-gray-dark);
+  font-size: 0.9rem;
 }
 

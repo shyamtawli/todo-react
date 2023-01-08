@@ -20,7 +20,6 @@ function Todo(props) {
       <button
           className="button button-primary"
           onClick={() => {props.onSelect(props.id)}}
-          title="Removes this to do from the list."
       >Delete</button>
     </div>
   );

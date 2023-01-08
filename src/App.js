@@ -33,7 +33,6 @@ function App() {
                 disabled={!input}
                 onClick={addTodo}
                 className="button button-primary"
-                title="Adds this to do to the list."
                 data-variant="dark"
             >Add</button>
           </form>
