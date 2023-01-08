@@ -59,7 +59,7 @@ function App() {
                   material-symbols-outlined">
                 sentiment_very_satisfied
               </div>
-              <p>Congrats! You have nothing to do right now!</p>
+              <p className="todos-congrats-message-text">Congrats! You have nothing to do right now!</p>
             </div>
           )}
         </div>

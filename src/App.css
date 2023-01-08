@@ -4,6 +4,8 @@
   --color-gray: hsl(0, 0%, 95%);
   --color-gray-dark: hsl(0, 0%, 30%);
   --color-red: hsl(8, 82%, 51%);
+  --color-red-dark: hsl(8, 82%, 41%);
+  --color-red-darker: hsl(8, 82%, 31%);
   --color-red-light: hsl(8, 82%, 71%);
 
   --color-primary: var(--color-red);
@@ -37,7 +39,6 @@
 }
 
 body,
-input,
 button {
   font-family: 'noto sans', 'sans-serif';
 }
@@ -56,6 +57,7 @@ h6 {
 }
 
 .app-container {
+  margin-top: 3rem;
   margin-inline: auto;
   width: min(90%, 600px);
 }
@@ -74,6 +76,14 @@ h6 {
   background: var(--color-primary);
   color: white;
   transition: background 200ms;
+}
+
+.button-primary:hover {
+  background: var(--color-red-dark);
+}
+
+.button-primary:active {
+  background: var(--color-red-darker);
 }
 
 .button-primary:disabled {
@@ -98,6 +108,10 @@ input[type='text']:focus {
   outline: none;
 }
 
+input[type='text']:focus:placeholder-shown {
+  color: var(--color-primary);
+}
+
 input[type='text']:focus,
 input[type='text']:not(:placeholder-shown) {
   background: hsl(0, 0%, 100%, 50%);
@@ -110,9 +124,21 @@ input[type='text']:not(:placeholder-shown) {
   align-items: center;
 }
 
+.todo-form input[type='text'] {
+  animation: appear 1s forwards;
+  opacity: 0;
+}
+
+.todo-form button {
+  animation: appear 1s 200ms forwards;
+  opacity: 0;
+}
+
 .todos-list-title {
+  animation: appear 1s 400ms forwards;
   font-size: 1.5rem;
   margin: 3rem 0 0.2rem 0;
+  opacity: 0;
 }
 
 .todos-status p {
@@ -134,7 +160,14 @@ input[type='text']:not(:placeholder-shown) {
 }
 
 .todos-congrats-message-icon {
+  animation: appear 1s 600ms forwards;
   font-size: 3rem;
+  opacity: 0;
+}
+
+.todos-congrats-message-text {
+  animation: appear 1s 800ms forwards;
+  opacity: 0;
 }
 
 .todo {
