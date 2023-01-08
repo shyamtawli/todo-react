@@ -13,9 +13,9 @@ function App() {
   }
 
   const deleteItem = (id) =>{
-    setTodo((Element) =>{
+    setTodo((Element) => {
       return Element.filter((_current,index) => index !== id);
-    })
+    });
   }
 
   return (
@@ -49,7 +49,7 @@ function App() {
         <div className="todos-container">
           {todos.length > 0 ? (
             todos.map((todo, index) => 
-              <Todo key={index} id={index} onSelect={deleteItem} text={todo} />
+              <Todo key={index} id={index} onSelect={deleteItem} body={todo} />
             )
           ) : (
             <div className="todos-congrats-message">
@@ -58,7 +58,9 @@ function App() {
                   material-symbols-outlined">
                 sentiment_very_satisfied
               </div>
-              <p className="todos-congrats-message-text">Congrats! You have nothing to do right now!</p>
+              <p className="todos-congrats-message-text">
+                Congrats! You have nothing to do right now!
+              </p>
             </div>
           )}
         </div>

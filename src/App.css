@@ -2,7 +2,7 @@
 
 :root {
   --color-gray: hsl(0, 0%, 95%);
-  --color-gray-dark: hsl(0, 0%, 30%);
+  --color-gray-dark: hsl(0, 0%, 45%);
   --color-red: hsl(8, 82%, 51%);
   --color-red-dark: hsl(8, 82%, 41%);
   --color-red-darker: hsl(8, 82%, 31%);
@@ -177,7 +177,7 @@ input[type='text']:not(:placeholder-shown) {
   box-shadow: var(--low-elevation-shadow);
   display: flex;
   justify-content: space-between;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem;
   border-left: 0px solid var(--color-primary);
   transition:
     box-shadow var(--transition-duration),
@@ -194,9 +194,13 @@ input[type='text']:not(:placeholder-shown) {
   backdrop-filter: blur(5px);
 }
 
-.todo-title {
-  font-size: 1rem;
-  font-weight: normal;
+.todo-body {
+  margin: 0 0 0.5rem 0;
   text-transform: capitalize;
+}
+
+.todo-time {
+  font-size: 0.9rem;
+  color: var(--color-gray-dark);
 }
 
