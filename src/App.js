@@ -34,14 +34,29 @@ function App() {
           <button
               disabled={!input}
               onClick={addTodo}
-              className="button button-yellow"
+              className="button button-orange"
               title="Adds this to do to the list."
-          >Add Item</button>
+          >Add</button>
         </form>
 
+        <div className="todos-status">
+          {todos.length > 0 && <p>You have {todos.length} thing(s) to do.</p>}
+        </div>
+
         <div className="todos-container">
-          {todos.map((todo, index) => 
-            <Todo key={index} id={index} onSelect={deleteItem} text={todo} />
+          {todos.length > 0 ? (
+            todos.map((todo, index) => 
+              <Todo key={index} id={index} onSelect={deleteItem} text={todo} />
+            )
+          ) : (
+            <div class="todos-congrats-message">
+              <div className="
+                  todos-congrats-message-icon
+                  material-symbols-outlined">
+                sentiment_very_satisfied
+              </div>
+              <p>Congrats! You have nothing to do right now!</p>
+            </div>
           )}
         </div>
       </div>

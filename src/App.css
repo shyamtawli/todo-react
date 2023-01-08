@@ -2,6 +2,9 @@
 
 :root {
   --color-gray: hsl(0, 0%, 95%);
+  --color-gray-dark: hsl(0, 0%, 30%);
+  --color-orange: hsl(16, 67%, 55%);
+  --color-orange-light: hsl(16, 67%, 70%);
 }
 
 :root {
@@ -44,10 +47,36 @@ body {
   text-transform: uppercase;
 }
 
+.button-orange {
+  background: var(--color-orange);
+  color: white;
+}
+
+.button-orange-light {
+  background: var(--color-orange-light);
+  color: white;
+}
+
+.todos-status {
+  font-weight: bold;
+  margin: 2rem 0;
+}
+
 .todos-container {
   display: grid;
   gap: 1rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
+}
+
+.todos-congrats-message {
+  align-items: center;
+  color: var(--color-gray-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.todos-congrats-message-icon {
+  font-size: 3rem;
 }
 
 .todo {
