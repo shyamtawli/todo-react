@@ -1,10 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --color-gray: hsl(0, 0%, 95%);
   --color-gray-dark: hsl(0, 0%, 30%);
-  --color-orange: hsl(16, 67%, 55%);
-  --color-orange-light: hsl(16, 67%, 70%);
+  --color-red: hsl(8, 82%, 51%);
+  --color-red-light: hsl(8, 82%, 71%);
+
+  --color-primary: var(--color-red);
+  --color-primary-light: var(--color-red-light);
 }
 
 :root {
@@ -24,14 +27,32 @@
   }
 }
 
+
+:root {
+  font-size: clamp(14px, 2vw, 18px)
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body,
 input,
 button {
-  font-family: 'arimo', 'sans-serif';
+  font-family: 'noto sans', 'sans-serif';
 }
 
 body {
   background: var(--color-gray);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: capitalize;
 }
 
 .app-container {
@@ -43,29 +64,60 @@ body {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  font-size: 0.9rem;
   padding: 0.5rem 1rem;
   text-transform: uppercase;
+  font-weight: bold;
 }
 
-.button-orange {
-  background: var(--color-orange);
+.button-primary {
+  background: var(--color-primary);
   color: white;
   transition: background 200ms;
 }
 
-.button-orange:disabled {
-  background: var(--color-orange-light);
+.button-primary:disabled {
+  background: var(--color-primary-light);
   cursor: not-allowed;
+}
+
+input[type='text'] {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  transition: border 100ms, background 200ms;
+  border-radius: 10px 10px 0 0;
+}
+
+input[type='text']:focus {
+  outline: none;
+}
+
+input[type='text']:focus,
+input[type='text']:not(:placeholder-shown) {
+  background: hsl(0, 0%, 100%, 50%);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.todo-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
 .todos-list-title {
   font-size: 1.5rem;
-  margin: 2rem 0 0.5rem 0;
+  margin: 3rem 0 0.2rem 0;
 }
 
-.todos-status {
-  font-weight: bold;
+.todos-status p {
   margin: 0;
+  color: var(--color-gray-dark);
 }
 
 .todos-container {

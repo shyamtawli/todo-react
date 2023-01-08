@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { FormControl, Input, InputLabel } from '@mui/material';
 import './App.css';
-import Todo from './Todo';
+import Todo from './components/Todo';
 
 function App() {
   const [todos, setTodo] = useState([]);
@@ -15,34 +14,37 @@ function App() {
 
   const deleteItem = (id) =>{
     setTodo((Element) =>{
-      return Element.filter((current,index) => index !== id);
+      return Element.filter((_current,index) => index !== id);
     })
   }
 
   return (
     <div className="App">
       <div className="app-container">
-        <form>
-          <FormControl>
-            <InputLabel>What do you want to do?</InputLabel>
-            <Input
-                value={input}
-                onChange={event => setInput(event.target.value)}
-            />
-          </FormControl>
-
+        <form className="todo-form">
+          <input
+              value={input}
+              onChange={(event) => {setInput(event.target.value)}}
+              type="text"
+              placeholder="What do you want to do?"
+          />
           <button
               disabled={!input}
               onClick={addTodo}
-              className="button button-orange"
+              className="button button-primary"
               title="Adds this to do to the list."
           >Add</button>
         </form>
 
-        <h1 className="todos-list-title">List of things to do</h1>
+        <h1 className="todos-list-title">Things to do</h1>
 
         <div className="todos-status">
-          {todos.length > 0 && <p>You have {todos.length} task(s).</p>}
+          {todos.length > 0 && (
+            <p>
+              You have {todos.length} {todos.length > 1 ? "todos " : "todo "}
+              remaining.
+            </p>
+          )}
         </div>
 
         <div className="todos-container">
@@ -51,7 +53,7 @@ function App() {
               <Todo key={index} id={index} onSelect={deleteItem} text={todo} />
             )
           ) : (
-            <div class="todos-congrats-message">
+            <div className="todos-congrats-message">
               <div className="
                   todos-congrats-message-icon
                   material-symbols-outlined">
