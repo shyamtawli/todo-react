@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Button, FormControl, Input, InputLabel } from '@mui/material';
+import { FormControl, Input, InputLabel } from '@mui/material';
 import './App.css';
 import Todo from './Todo';
 
 function App() {
-
   const [todos, setTodo] = useState([]);
   const [input, setInput] = useState('');
 
@@ -12,7 +11,6 @@ function App() {
     event.preventDefault();
     setTodo([...todos, input]);
     setInput('');
-    
   }
 
   const deleteItem = (id) =>{
@@ -24,27 +22,24 @@ function App() {
   return (
     <div className="App">
       <div className="app-container">
-        <h1>TODO List</h1>
-        
         <form>
           <FormControl>
-            <InputLabel>Write a ToDo</InputLabel>
+            <InputLabel>What do you want to do?</InputLabel>
             <Input
                 value={input}
                 onChange={event => setInput(event.target.value)}
             />
           </FormControl>
 
-        
-          <Button
+          <button
               disabled={!input}
-              type="submit"
               onClick={addTodo}
-              variant="contained"
-          >Add Item</Button>
+              className="button button-yellow"
+              title="Adds this to do to the list."
+          >Add Item</button>
         </form>
 
-        <div className='todos-container'>
+        <div className="todos-container">
           {todos.map((todo, index) => 
             <Todo key={index} id={index} onSelect={deleteItem} text={todo} />
           )}

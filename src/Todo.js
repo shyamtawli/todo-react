@@ -1,15 +1,14 @@
-import { ListItem,List, ListItemText,Button } from '@mui/material';
 import React from 'react';
 
 function Todo(props) {
   return (
-    <div className='todo'>
-      <List>
-        <ListItem>
-          <ListItemText primary={props.text} secondary="DeadLine"/>
-          <Button onClick={() => props.onSelect(props.id)} >Delete ToDo</Button>
-        </ListItem>
-      </List>
+    <div className="todo">
+      <h4 className="todo-title">{props.text}</h4>
+      <button
+          className="button"
+          onClick={() => {props.onSelect(props.id)}}
+          title="Removes this to do from the list."
+      >Delete</button>
     </div>
   );
 }
