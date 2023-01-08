@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
   --color-gray: hsl(0, 0%, 95%);
@@ -97,7 +97,6 @@ input[type='text'] {
   border-bottom: 1px solid black;
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
   padding: 0.5rem;
   font-size: 0.9rem;
   transition: border 100ms, background 200ms;
@@ -121,7 +120,6 @@ input[type='text']:not(:placeholder-shown) {
 .todo-form {
   display: flex;
   gap: 1rem;
-  align-items: center;
 }
 
 .todo-form input[type='text'] {
@@ -137,8 +135,8 @@ input[type='text']:not(:placeholder-shown) {
 .todos-list-title {
   animation: appear 1s 400ms forwards;
   font-size: 1.5rem;
-  margin: 3rem 0 0.2rem 0;
   opacity: 0;
+  margin: 3rem 0 0.2rem 0;
 }
 
 .todos-status p {
@@ -171,6 +169,7 @@ input[type='text']:not(:placeholder-shown) {
 }
 
 .todo {
+  --transition-duration: 200ms;
   align-items: center;
   animation: appear 1s forwards;
   background: white;
@@ -179,11 +178,20 @@ input[type='text']:not(:placeholder-shown) {
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
-  transition: box-shadow 200ms;
+  border-left: 0px solid var(--color-primary);
+  transition:
+    box-shadow var(--transition-duration),
+    border-left var(--transition-duration),
+    background var(--transition-duration);
 }
 
-.todo:hover {
+.todo:hover,
+.todo:active {
   box-shadow: var(--medium-elevation-shadow);
+  border-left: 5px solid var(--color-primary);
+  border-radius: 0 10px 10px 0;
+  background: hsl(0, 0%, 100%, 50%);
+  backdrop-filter: blur(5px);
 }
 
 .todo-title {

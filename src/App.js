@@ -37,7 +37,6 @@ function App() {
         </form>
 
         <h1 className="todos-list-title">Things to do</h1>
-
         <div className="todos-status">
           {todos.length > 0 && (
             <p>
