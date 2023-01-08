@@ -20,22 +20,26 @@ function App() {
 
   return (
     <div className="App">
+      <div className="app-header">
+        <div className="app-container">
+          <form className="todo-form">
+            <input
+                value={input}
+                onChange={(event) => {setInput(event.target.value)}}
+                type="text"
+                placeholder="What do you want to do?"
+            />
+            <button
+                disabled={!input}
+                onClick={addTodo}
+                className="button button-primary"
+                title="Adds this to do to the list."
+                data-variant="dark"
+            >Add</button>
+          </form>
+        </div>
+      </div>
       <div className="app-container">
-        <form className="todo-form">
-          <input
-              value={input}
-              onChange={(event) => {setInput(event.target.value)}}
-              type="text"
-              placeholder="What do you want to do?"
-          />
-          <button
-              disabled={!input}
-              onClick={addTodo}
-              className="button button-primary"
-              title="Adds this to do to the list."
-          >Add</button>
-        </form>
-
         <h1 className="todos-list-title">Things to do</h1>
         <div className="todos-status">
           {todos.length > 0 && (
@@ -45,7 +49,6 @@ function App() {
             </p>
           )}
         </div>
-
         <div className="todos-container">
           {todos.length > 0 ? (
             todos.map((todo, index) => 
